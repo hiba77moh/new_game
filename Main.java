@@ -18,10 +18,9 @@ public class Main {
     State newState = new State(state);
 
 
-        ////////////////////////////// user playing /////////////////////////////////////
-    play new_play = new play();
-    new_play.start_play(newState);
-
+    ////////////////////////////// user playing /////////////////////////////////////
+   play new_play = new play();
+   new_play.start_play(newState);
 
 
 
