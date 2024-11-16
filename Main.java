@@ -19,9 +19,17 @@ public class Main {
 
 
     ////////////////////////////// user playing /////////////////////////////////////
-   play new_play = new play();
-   new_play.start_play(newState);
+//   play new_play = new play();
+//   new_play.start_play(newState);
 
+
+   algorithm n = new algorithm();
+   ////////////////////////////// BFS /////////////////////////////////////
+   System.out.println("the BFS ");
+   n.BFS(state);
+   System.out.println("done");
+
+   System.out.println("-----------------------");
 
 
 ////////////////////////////// equal /////////////////////////////////////
