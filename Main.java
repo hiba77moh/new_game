@@ -31,6 +31,12 @@ public class Main {
 
    System.out.println("-----------------------");
 
+   ////////////////////////////// DFS /////////////////////////////////////
+   System.out.println("the DFS ");
+   n.DFS(state);
+   System.out.println("done");
+
+
 
 ////////////////////////////// equal /////////////////////////////////////
 //        State test = new State();
