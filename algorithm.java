@@ -90,6 +90,54 @@ public class algorithm {
         }
 
 
+    ArrayList<State> visited = new ArrayList<>();
+    private int v = 1;
+    private int p = 0;
+
+    public void DFS_R(State currentState) {
+
+        if(currentState.check_win())
+            return;
+
+        State.print_grid(currentState);
+
+        visited.add(currentState);
+
+        if (currentState.check_win()) {
+            Stack<State> path = new Stack<>();
+            while (currentState != null) {
+                path.add(currentState);
+                currentState = currentState.parent;
+            }
+
+
+            if (!path.isEmpty()) {
+                State state = path.pop();
+                State.print_grid(state);
+                p++;
+            }
+            else
+                return;
+        }
+
+
+        assert currentState != null;
+        for (State nextState : currentState.next_state(currentState)) {
+            if (!visited.contains(nextState)) {
+                visited.add(nextState);
+                v++;
+                nextState.parent = currentState;
+
+                DFS_R(nextState);
+//                System.out.println("visited length : " + v);
+//                System.out.println("path length : " + p);
+            }
+        }
+    }
+
+
+
+
 
 
 
