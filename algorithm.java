@@ -94,12 +94,16 @@ public class algorithm {
     private int v = 1;
     private int p = 0;
 
-    public void DFS_R(State currentState) {
+    public boolean DFS_R(State currentState) {
 
-        if(currentState.check_win())
-            return;
+        if(currentState.check_win()){
+            State.print_grid(currentState);
+            return true;
+        }
+        else
+            State.print_grid(currentState);
 
-        State.print_grid(currentState);
+
 
         visited.add(currentState);
 
@@ -111,13 +115,6 @@ public class algorithm {
             }
 
 
-            if (!path.isEmpty()) {
-                State state = path.pop();
-                State.print_grid(state);
-                p++;
-            }
-            else
-                return;
         }
 
 
@@ -128,11 +125,15 @@ public class algorithm {
                 v++;
                 nextState.parent = currentState;
 
-                DFS_R(nextState);
+                boolean flag = DFS_R(nextState);
+                if(flag){
+                    return true;
+                }
 //                System.out.println("visited length : " + v);
 //                System.out.println("path length : " + p);
             }
         }
+        return false;
     }
 
 
