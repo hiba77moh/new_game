@@ -9,8 +9,8 @@ public class Main {
 //    grid.level_one(state);
 //    grid.level_tow(state);
 //    grid.level_three(state);
-    grid.level_sex(state);
-//    grid.level_seven(state);
+//    grid.level_sex(state);
+    grid.level_seven(state);
 
 
     State.print_grid(state);
@@ -25,9 +25,9 @@ public class Main {
 
    algorithm n = new algorithm();
    ////////////////////////////// BFS /////////////////////////////////////
-//   System.out.println("the BFS ");
-//   n.BFS(state);
-//   System.out.println("done");
+   System.out.println("the BFS ");
+   n.BFS(state);
+   System.out.println("done");
 
    System.out.println("-----------------------");
 
@@ -38,10 +38,18 @@ public class Main {
 
    System.out.println("-----------------------");
 
-   ////////////////////////////// DFS /////////////////////////////////////
-   System.out.println("the DFS_R ");
-   n.DFS_R(state);
+   ////////////////////////////// DFS in recursion /////////////////////////////////////
+//   System.out.println("the DFS_R ");
+//   n.DFS_R(state);
+//   System.out.println("done");
+//
+//   System.out.println("-----------------------");
+
+   ////////////////////////////// UCS /////////////////////////////////////
+   System.out.println("the UCS ");
+   n.UCS(state);
    System.out.println("done");
+
 
 
 

@@ -5,6 +5,7 @@ import java.util.Objects;
 public class State {
 
     State parent ;
+    int cost ;
 
     String[][] grid;
     int n;
