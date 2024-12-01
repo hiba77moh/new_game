@@ -18,7 +18,7 @@ public class Grid {
     }
 
     public void level_tow(State state) {
-        this.n = 5;
+        this.n = 6;
         this.m = 9;
         this.grid = new String[][] {
                 {"X", "X", "X", "X", "X", "X", "X", "X", "X"},

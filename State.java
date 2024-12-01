@@ -85,7 +85,7 @@ public class State {
         return win;
     }
 
-    ////////////////////////////// check_move functions/////////////////////////////////////
+    ////////////////////////////// check_move functions /////////////////////////////////////
     public boolean can_move_right() {
         for (int i = this.n - 1; i >= 0; i--) {
             for (int j = this.m - 1; j >= 0; j--) {
@@ -183,7 +183,7 @@ public class State {
     }
 
 
-    ////////////////////////////// moving funcs/////////////////////////////////////
+    ////////////////////////////// moving functions /////////////////////////////////////
     public State move_right() {
         for (int i = this.n - 1; i >= 0; i--) {
             for (int j = this.m - 1; j >= 0; j--) {
@@ -195,7 +195,6 @@ public class State {
                     while (targetIndex + 1 < this.m &&
                             !Character.isLowerCase(grid[i][targetIndex + 1].charAt(0)) &&
                             grid[i][targetIndex + 1].charAt(0) != 'X') {
-//                        targetIndex++;
                         if (grid[i][targetIndex + 1].charAt(0) == Character.toUpperCase(c)) {
                             //update the new postion
                             grid[i][targetIndex + 1] = " ";

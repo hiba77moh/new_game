@@ -182,4 +182,29 @@ public class algorithm {
 
 
 
+    public int count_heuristic(State state) {
+        int totalDistance = 0;
+
+        for (int i = 0; i < state.grid.length; i++) {
+            for (int j = 0; j < state.grid[i].length; j++) {
+                String s = state.grid[i][j];
+                if (Character.isLowerCase(s.charAt(0))) {
+                    char c = s.charAt(0);
+                    int targetIndex = c - 'a';
+
+                    int targetX = targetIndex / state.grid[0].length;
+                    int targetY = targetIndex % state.grid[0].length;
+                    totalDistance += Math.abs(i - targetX) + Math.abs(j - targetY);
+                }
+            }
+        }
+        return totalDistance;
+    }
+
+
+
+
+
+
+
 }
