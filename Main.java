@@ -52,8 +52,15 @@ public class Main {
 //   System.out.println("done");
 
 ////////////////////////////// heuristic /////////////////////////////////////
-        System.out.println("the heuristic ");
-        n.A_star(state);;
+//        System.out.println("the heuristic ");
+//        n.A_star(state);;
+//        System.out.println("done");
+//
+//           System.out.println("-----------------------");
+
+        ////////////////////////////// hill_Climbing /////////////////////////////////////
+        System.out.println("the hill_Climbing ");
+        n.hill_Climbing(state);;
         System.out.println("done");
 
 

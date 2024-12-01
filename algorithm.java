@@ -181,7 +181,6 @@ public class algorithm {
     }
 
 
-
     public int count_heuristic(State state) {
         int totalDistance = 0;
 
@@ -243,57 +242,55 @@ public class algorithm {
         System.out.println("path length : " + p);
     }
 
-//    public void hill_Climbing(State initial_state) {
-//        int v = 1;
-//        int p = 0;
-//        initial_state.cost = 0;
-//        ArrayList<State> visited = new ArrayList<>();
-//        Stack<State> path = new Stack<>();
-//        path.push(initial_state);
-//
-//        while (!path.isEmpty()) {
-//            State currentState = path.peek();
-//            visited.add(currentState);
-//
-//            if (currentState.check_win()) {
-//                while (!path.isEmpty()) {
-//                    State state = path.pop();
-//                    State.print_grid(state);
-//                    p++;
-//                }
-//                break;
-//            }
-//
-//            State bestNeighbor = null;
-//            int bestCost = Integer.MAX_VALUE;
-//
-//            for (State nextState : currentState.next_state(currentState)) {
-//                if (!visited.contains(nextState)) {
-//                    int newCost = nextState.cost + count_heuristic(nextState);
-//                    if (newCost < bestCost) {
-//                        bestNeighbor = nextState;
-//                        bestCost = newCost;
-//                    }
-//                }
-//            }
-//
-//            if (bestNeighbor == null || bestCost >= currentState.cost + count_heuristic(currentState)) {
-//                System.out.println("No solution found.");
-//                break;
-//            }
-//
-//            bestNeighbor.parent = currentState;
-//            bestNeighbor.cost = bestCost;
-//            path.push(bestNeighbor);
-//            v++;
-//        }
-//
-//        System.out.println("visited length : " + v);
-//        System.out.println("path length : " + p);
-//    }
 
+    public void hill_Climbing(State initialState) {
+        Set<State> visited = new HashSet<>();
+        int v = 1;
+        int p = 0;
 
+        State currentState = initialState;
+        currentState.cost = 0;
 
+        while (true) {
+            visited.add(currentState);
 
+            if (currentState.check_win()) {
+                Stack<State> path = new Stack<>();
+                while (currentState != null) {
+                    path.push(currentState);
+                    currentState = currentState.parent;
+                }
 
+                while (!path.isEmpty()) {
+                    State state = path.pop();
+                    state.getGrid();
+                    p++;
+                }
+                break;
+            }
+
+            State bestNeighbor = null;
+            int bestCost = currentState.cost + count_heuristic(currentState);
+
+            for (State neighbor : currentState.next_state(currentState)) {
+                if (!visited.contains(neighbor)) {
+                    int neighborCost = neighbor.cost + count_heuristic(neighbor);
+                    if (neighborCost < bestCost) {
+                        bestNeighbor = neighbor;
+                        bestCost = neighborCost;
+                    }
+                }
+            }
+
+            if (bestNeighbor == null) {
+                break;
+            }
+
+            currentState = bestNeighbor;
+            v++;
+        }
+
+        System.out.println("visited length : " + v);
+        System.out.println("path length : " + p);
+    }
 }
