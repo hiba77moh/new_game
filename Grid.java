@@ -85,5 +85,24 @@ public class Grid {
         state.set_grid(grid);
     }
 
+    public void level_nine(State state) {
+        this.n = 8;
+        this.m = 9;
+        this.grid = new String[][] {
+                {" ", " ", " ", " ", "X", "X", "X", "X", "X"},
+                {" ", " ", " ", " ", "X", " ", " ", " ", "X"},
+                {"X", "X", "X", "X", "X", "A", "X", " ", "X"},
+                {"X", " ", " ", " ", "a", " ", "X", " ", "X"},
+                {"X", " ", " ", "B", "X", "b", "X", " ", "X"},
+                {"X", " ", " ", " ", " ", " ", " ", " ", "X"},
+                {"X", " ", " ", " ", " ", " ", " ", " ", "X"},
+                {"X", "X", "X", "X", "X", "X", "X", "X", "X"}
+        };
+        state.set_n(n);
+        state.set_m(m);
+        state.set_grid(grid);
+    }
+
+
 
 }

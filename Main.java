@@ -8,9 +8,10 @@ public class Main {
 ////////////////////////////// game levels /////////////////////////////////////
 //    grid.level_one(state);
 //    grid.level_tow(state);
-    grid.level_three(state);
+//    grid.level_three(state);
 //    grid.level_sex(state);
 //    grid.level_seven(state);
+    grid.level_nine(state);
 
 
     State.print_grid(state);
@@ -52,7 +53,7 @@ public class Main {
 
 ////////////////////////////// heuristic /////////////////////////////////////
         System.out.println("the heuristic ");
-        System.out.println(n.count_heuristic(state));
+        n.A_star(state);;
         System.out.println("done");
 
 

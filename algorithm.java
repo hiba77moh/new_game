@@ -201,6 +201,47 @@ public class algorithm {
         return totalDistance;
     }
 
+    public void A_star(State initial_state) {
+        int v = 1;
+        int p = 0;
+        initial_state.cost = 0;
+        ArrayList<State> visited = new ArrayList<>();
+        PriorityQueue<State> pq = new PriorityQueue<>((a, b) -> Integer.compare(a.cost + count_heuristic(a), b.cost + count_heuristic(b)));
+        pq.add(initial_state);
+
+        while (!pq.isEmpty()) {
+            State currentState = pq.poll();
+            visited.add(currentState);
+
+            if (currentState.check_win()) {
+                Stack<State> path = new Stack<>();
+                while (currentState != null) {
+                    path.add(currentState);
+                    currentState = currentState.parent;
+                }
+
+                while (!path.isEmpty()) {
+                    State state = path.pop();
+                    State.print_grid(state);
+                    p++;
+                }
+                break;
+            }
+
+            for (State nextState : currentState.next_state(currentState)) {
+                int newCost = currentState.cost + 1;
+                if (!visited.contains(nextState) || newCost < nextState.cost) {
+                    visited.add(nextState);
+                    v++;
+                    nextState.parent = currentState;
+                    nextState.cost = newCost;
+                    pq.add(nextState);
+                }
+            }
+        }
+        System.out.println("visited length : " + v);
+        System.out.println("path length : " + p);
+    }
 
 
 
