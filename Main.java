@@ -58,6 +58,11 @@ public class Main {
 
 
 
+
+
+
+
+
 ////////////////////////////// equal /////////////////////////////////////
 //        State test = new State();
 //        State test = new State(newState);
